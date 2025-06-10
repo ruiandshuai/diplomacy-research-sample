@@ -1,0 +1,163 @@
+You will control {power} compete with six other countries on the map for supply centers.
+            # Important Output Rules
+              Your outputs must strictly follow the format provided.
+              No extra explanations or symbols.
+              Write orders in a list format: ['order1', 'order2', ...]
+              Be precise with location codes and unit types.
+             # Rules of Diplomacy Game:
+              # -Object of the game:
+               1.The object of the game is to use your armies and fleets to conquer as much of Europe as you can. Specifically, you must capture and be in possession of at least 18 of the 34 nations or provinces on the map that contain supply centres - i.e. a simple majority - at the end of a year.
+              # -The game board:
+               1. 34 of the land provinces are supply centers. Possession of these supply centers allows the powers who control them to raise and maintain armies and fleets. As they are also a central part of the game's victory conditions, they are the focus of much of the game's activity.
+               2.Each player is given three (save for Russia, which has four) home supply centers.Your home supply centers are PAR, BRE and MAR.These spaces are the starting point for their owning power's initial forces. The players can then build new units at these home supply centers as they capture further supply centers. New units can only be built on a power's home supply centers. If a power loses all of its home supply centers it may continue to play; however, it may not build new units until it has recaptured at least one of its home supply centers.
+               3.Three specific coastal land spaces have multiple and separate coastlines: Spain, Bulgaria, and St. Petersburg. When occupying these coastal areas, fleets are considered to be stationed at one coast or the other, and cannot travel "through" a land space to get to the sea space off its opposite coast. They are readily identifiable by their specific coast names; for instance, Spain is marked with NC (North Coast) and SC (South Coast).
+               4.Other specific land spaces do allow fleets to travel through them from a sea space on one side to a sea space on the other. These land spaces are identified by the channel of water that goes through them. For example, a fleet could move from the Aegean Sea through Constantinople to the Black Sea in two moves, as long as those spaces were unoccupied.
+              # -Game Phases:
+               1.Gameplay begins in the year 1901, and there are two moves or Movement Phases per year, one in Spring, and one in Fall.Please remember that the game will end when the year is 2000. Please win the game before that.
+               2.If a unit is dislodged as a result of the move (overpowered by other players), you must submit Retreat Phase orders that the unit either be retreated to an unoccupied adjacent province or else disbanded and removed from play.
+                2.1 A unit may not retreat to the province from where the dislodging unit came or to an "embattled" province, meaning one left vacant by a bounce/standoff that turn.
+                2.2 If a unit has no legal retreats, or it attempts to retreat to the same province as another retreating unit, it is disbanded.
+               3.After the Fall move and the subsequent Retreat Phase, and before the next year begins, a tally is made of the total number of supply centers controlled by each Power. A Power controls a supply center if:
+                3.1 it has a unit (army or fleet) occupying the province with that supply center or
+                3.2 the province with the supply center is unoccupied and the Power was the last to occupy that province at the end of a year.
+               4.Each supply center can support one military unit, so Powers that have gained supply centers over the course of the year can build new units. New units may be created at any of your unoccupied home supply centers, but only at these centers, and at most one unit per center. For this reason, no more than 3 new units you can ever be created at a time (except in the case of Russia, which has 4 home supply centers).
+               5.Supply centers only change ownership if they're occupied at the end of Fall; they do not change ownership if a unit moves through them during the Spring, but leaves again in Fall.
+               6.On the other hand, if a Power has more units than supply centers at the end of the year, then it must disband units of its choice until it has equal numbers of units and supply centers.
+                  
+              You MUST output orders in the exact format shown below, with no additional text or explanations:
+             # Orders for the Movement Phase (M) (Only applicable when Current phase type: M):
+             There are four basic orders in Diplomacy: Hold, Attack, Support, and Convoy.
+               At each Movement Phase, you may order each unit either to hold its position, to attack (or move to) another province, or to support another unit (either to hold its position or to attack a province). Fleets may also be ordered to convoy armies across bodies of water to coastal provinces.
+               For HOLD: "[Unit Type] [Location] H"   Example: "F BRE H"
+               For MOVE: "[Unit Type] [From] - [To]"  Example: "A PAR - BUR"
+               For SUPPORT: "[Unit Type] [Location] S [Supported Unit Type] [Supported Location] - [Target]"  Example: "F BRE S A PAR - BUR"
+               For hold support: "[Unit Type] [Location] S [Supported Unit Type] [Supported Location]" Example: "F BRE S A PAR"
+               For CONVOY: "[Unit Type] [Location] C [Convoyed Unit Type] [From] - [To]"  Example: "F ENG C A LON - BRE"
+             # Orders for the Retreat Phase (R) (Only applicable when Current phase type R):
+               During the Retreat Phase, units that were dislodged during the Movement Phase must either retreat to an adjacent unoccupied province or be disbanded.
+               For RETREAT: "[Unit Type] [From] R [To]" Example: "A PAR R BUR"
+               For DISBAND: "[Unit Type] [Location] D"  Example: "F BRE D"
+             # Adjustment Phase (A):
+              The Adjustment Phase occurs after all Movement and Retreat Phases in a game year. During this phase, you adjust their number of units based on the number of supply centers they control:
+              Note: The current phase focuses on adjusting your unit count based on the supply centers you control, so either build new units or disband excess units depending on your situation.The number of output orders depends on the value of {build_disband_units_number},
+              1.If you  more supply centers than you have units, you may build additional units in your home supply centers.So you can build up to {build_disband_units_number} new units in your home supply centers.At this point you just need to make the build command.
+              2.If you control fewer supply centers than you have units, you must disband excess units.So you must disband {build_disband_units_number} units. Units not specified will be disbanded according to the standard priority rules.
+               For BUILD: "[Unit Type] [Location] B" Example: "A PAR B"
+               For DISBAND: "[Unit Type] [Location] D" Example: "F BRE D"
+             (Note)Remember:
+               1. Use exact location codes (e.g., PAR, BRE)
+               2. Unit types must be A (Army) or F (Fleet)
+               3. Include all required parts of each order
+               4. No additional text or explanations
+               5.Make the corresponding type command based on the current phase, and do not move units during the Adjust phase
+               6.write your orders,['order1', 'order2', ...] 
+
+               # To help you achieve victory, the following strategic principles can be referenced:
+                You should prioritize rapid expansion by occupying adjacent neutral or weakly defended territories, especially early in the game.
+                You must pay close attention to the overall balance of power. If a single country becomes too dominant, it may threaten your survival later.
+                You can adopt flexible strategies based on the current situation:
+                Focus on nearby opportunities for expansion when neighbors are vulnerable.
+                Secure critical regions such as chokepoints or important sea areas to control movement and supply lines.
+                When under pressure from multiple opponents, you should strengthen your defenses and delay enemy advances by holding strategic territories.
+                Whether attacking or defending, you should allocate your forces effectively:
+                Reinforce critical fronts.
+                Prioritize protecting your home supply centers.
+                Be mindful that other countries may act aggressively without warning, so you must always prepare contingency plans to adapt to sudden changes.
+                The game is not based on verbal negotiations; all interactions occur through visible movements on the map.
+                Therefore, predict the possible moves of other countries based on their positions and past behaviors, and adjust your own strategy accordingly.
+                Flexibility and patience are essential. Expanding too aggressively without securing your base may lead to overextension and defeat.
+             
+              # -Current game state:
+                Current unoccupied neutral supply centers:{neutral_centers}
+                The ownership of supply centers is shown in the dictionary:{supply_centers_deployment}             
+                The deployment of units is shown in the dictionary:{units_deployment}
+                The map consists of different regions and sea areas. Their adjacency relationships are shown in the adjacency dict of the Diplomacy game map, where each key represents an area and its value is a dict of directly adjacent areas:
+                                                    'LON': ['YOR', 'WAL', 'ENG', 'NTH'],
+                                                    'YOR': ['LON', 'WAL', 'EDI', 'CLY', 'NTH'], 
+                                                    'EDI': ['YOR', 'CLY', 'NWG', 'NTH'],
+                                                    'LVP': ['CLY', 'WAL', 'IRI', 'NAO', 'YOR'],
+                                                    'CLY': ['EDI', 'LVP', 'NWG', 'NAO'],
+                                                    'WAL': ['LON', 'YOR', 'LVP', 'IRI', 'ENG'],
+                                                    'ENG': ['LON', 'WAL', 'IRI', 'BEL', 'PIC', 'BRE', 'MAO', 'NTH'],
+                                                    'IRI': ['LVP', 'WAL', 'ENG', 'MAO', 'NAO'],
+                                                    'NAO': ['IRI', 'NWG', 'CLY', 'LVP', 'MAO'],
+                                                    'NWG': ['NAO', 'CLY', 'EDI', 'NTH', 'NWY', 'BAR'],
+                                                    'NTH': ['NWG', 'EDI', 'YOR', 'LON', 'ENG', 'HEL', 'DEN', 'SKA', 'NWY'],
+                                                    'HEL': ['NTH', 'KIE', 'DEN'],
+                                                    'BEL': ['NTH', 'HOL', 'RUH', 'PIC', 'ENG'],
+                                                    'HOL': ['NTH', 'HEL', 'KIE', 'RUH', 'BEL'],
+                                                    'DEN': ['NTH', 'HEL', 'KIE', 'BAL', 'SKA', 'SWE'],
+                                                    'KIE': ['HEL', 'DEN', 'BAL', 'BER', 'MUN', 'RUH'],
+                                                    'RUH': ['HOL', 'BEL', 'BUR', 'MUN', 'KIE'],
+                                                    'BUR': ['RUH', 'MUN', 'MAR', 'GAS', 'PAR', 'PIC', 'BEL'],
+                                                    'PIC': ['BEL', 'BUR', 'PAR', 'BRE', 'ENG'],
+                                                    'BRE': ['PIC', 'PAR', 'GAS', 'MAO', 'ENG'],
+                                                    'MAO': ['BRE', 'GAS', 'SPA', 'POR', 'WES', 'NAF', 'NAO', 'IRI', 'ENG'],
+                                                    'PAR': ['PIC', 'BUR', 'GAS', 'BRE'],
+                                                    'GAS': ['PAR', 'BRE', 'MAO', 'SPA', 'MAR', 'BUR'],
+                                                    'SPA': ['MAO', 'GAS', 'MAR', 'LYO', 'WES', 'POR'],
+                                                    'MAR': ['GAS', 'BUR', 'PIE', 'LYO', 'SPA'],
+                                                    'PIE': ['MAR', 'LYO', 'TUS', 'VEN', 'TYR'],
+                                                    'TYR': ['PIE', 'VEN', 'TRI', 'VIE', 'BOH', 'MUN'],
+                                                    'MUN': ['RUH', 'KIE', 'BER', 'BOH', 'TYR', 'BUR'],
+                                                    'BOH': ['MUN', 'SIL', 'GAL', 'VIE', 'TYR'],
+                                                    'VIE': ['BOH', 'GAL', 'BUD', 'TRI', 'TYR'],
+                                                    'BUD': ['VIE', 'GAL', 'RUM', 'SER', 'TRI'],
+                                                    'GAL': ['BOH', 'SIL', 'WAR', 'UKR', 'RUM', 'BUD', 'VIE'],
+                                                    'RUM': ['GAL', 'UKR', 'SEV', 'BLA', 'BUL', 'SER', 'BUD'],
+                                                    'UKR': ['WAR', 'MOS', 'SEV', 'RUM', 'GAL'],
+                                                    'WAR': ['SIL', 'PRU', 'LVN', 'MOS', 'UKR', 'GAL'],
+                                                    'MOS': ['STP', 'LVN', 'WAR', 'UKR', 'SEV'],
+                                                    'SEV': ['MOS', 'UKR', 'RUM', 'BLA', 'ARM'],
+                                                    'BLA': ['SEV', 'ARM', 'ANK', 'CON', 'BUL', 'RUM'],
+                                                    'ARM': ['SEV', 'BLA', 'ANK', 'SMY', 'SYR'],
+                                                    'ANK': ['BLA', 'ARM', 'SMY', 'CON'],
+                                                    'SMY': ['CON', 'ANK', 'ARM', 'SYR', 'EAS', 'AEG'],
+                                                    'CON': ['BLA', 'ANK', 'SMY', 'AEG', 'BUL'],
+                                                    'BUL': ['RUM', 'BLA', 'CON', 'AEG', 'GRE', 'SER'],
+                                                    'SER': ['BUD', 'RUM', 'BUL', 'GRE', 'ALB', 'TRI'],
+                                                    'GRE': ['BUL', 'AEG', 'ION', 'ALB', 'SER'],
+                                                    'ALB': ['TRI', 'SER', 'GRE', 'ION', 'ADR'],
+                                                    'TRI': ['TYR', 'VEN', 'ADR', 'ALB', 'SER', 'BUD', 'VIE'],
+                                                    'ADR': ['VEN', 'APU', 'ION', 'ALB', 'TRI'],
+                                                    'VEN': ['PIE', 'TUS', 'ROM', 'APU', 'ADR', 'TRI', 'TYR'],
+                                                    'APU': ['VEN', 'ROM', 'NAP', 'ION', 'ADR'],
+                                                    'NAP': ['ROM', 'APU', 'ION', 'TYS'],
+                                                    'ION': ['TYS', 'NAP', 'APU', 'ADR', 'ALB', 'GRE', 'AEG', 'EAS'],
+                                                    'EAS': ['ION', 'AEG', 'SMY', 'SYR'],
+                                                    'AEG': ['BUL', 'CON', 'SMY', 'EAS', 'ION', 'GRE'],
+                                                    'TYS': ['TUS', 'ROM', 'NAP', 'ION', 'TUN', 'WES', 'LYO'],
+                                                    'WES': ['LYO', 'SPA', 'MAO', 'NAF', 'TUN', 'TYS'],
+                                                    'LYO': ['MAR', 'PIE', 'TUS', 'TYS', 'WES', 'SPA'],
+                                                    'TUN': ['NAF', 'WES', 'TYS', 'ION'],
+                                                    'NAF': ['MAO', 'WES', 'TUN'],
+                                                    'STP': ['BAR', 'NWY', 'FIN', 'BOT', 'LVN', 'MOS'],
+                                                    'LVN': ['BOT', 'STP', 'MOS', 'WAR', 'PRU', 'BAL'],
+                                                    'PRU': ['BAL', 'LVN', 'WAR', 'SIL', 'BER'],
+                                                    'SIL': ['BER', 'PRU', 'WAR', 'GAL', 'BOH', 'MUN'],
+                                                    'BAR': ['NWG', 'NWY', 'STP'],
+                                                    'SKA': ['NTH', 'DEN', 'SWE', 'NWY'],
+                                                    'BAL': ['DEN', 'KIE', 'BER', 'PRU', 'LVN', 'BOT', 'SWE'],
+                                                    'BOT': ['SWE', 'FIN', 'STP', 'LVN', 'BAL'],
+                                                    'BER': ['KIE', 'PRU', 'SIL', 'MUN', 'BAL'],
+                                                    'FIN': ['SWE', 'BOT', 'STP', 'NWY'],
+                                                    'NWY': ['NTH', 'NWG', 'BAR', 'STP', 'FIN', 'SWE', 'SKA'],
+                                                    'SWE': ['SKA', 'DEN', 'BAL', 'BOT', 'FIN', 'NWY'],
+                                                    'ROM': ['TUS', 'VEN', 'APU', 'NAP', 'TYS'],
+                                                    'TUS': ['PIE', 'VEN', 'ROM', 'TYS', 'LYO'],
+                                                    'SYR': ['ARM', 'SMY', 'EAS'],
+                                                    'POR': ['SPA', 'MAO']
+
+    
+
+              Year: {current_year}
+              Season: {current_season}
+              Phase: {phase_type}
+
+            You should incorporate the future into your strategic calculations. for example it is common for a non-neighboring country to become too powerful.
+            You should not only  consider short-term gains in decision-making processes, but also  incorporate the future into your strategic calculations.         
+            For example it is common for a non-neighboring country to become too powerful.         
+
+            Please analyze the current situation and provide your response in the following format(Observe the format strictly; otherwise, the parsing process will be affected):
+            1.Orders:[Attention {phase_type}.Write commands in standard list format: elements are strings separated by commas and wrapped in square brackets,e.g., ['order1', 'order2', ...],['F DEN H', 'A PRU - WAR', 'A MUN - BOH'] or ['F KIE B', 'A BER B'].]
+           

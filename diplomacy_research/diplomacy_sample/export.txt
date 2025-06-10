@@ -1,0 +1,5 @@
+export AZURE_DEPLOYMENT_NAME="gpt-4.1-2025-04-14" 
+export AZURE_API_KEY=<Your AZURE_API_KEY>
+export AZURE_API_ENDPOINT="https://api.tonggpt.mybigai.ac.cn/proxy/eastus2"
+export AZURE_API_VERSION="2025-03-01-preview"
+export PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=cpp
