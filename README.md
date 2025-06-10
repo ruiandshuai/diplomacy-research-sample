@@ -14,7 +14,7 @@ The definition and operation of an llm-based agent in a game code in [the folder
 #### Clone the repo with submodules:
 
 ```python3
-git clone https://github.com/ruiandshuai/ruiandshuai-diplomacy-research-sample.git
+git clone https://github.com/ruiandshuai/diplomacy-research-sample.git
 cd diplomacy-research
 ```
 #### The repository can be installed in a conda environment with:
