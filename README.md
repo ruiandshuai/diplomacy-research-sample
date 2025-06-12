@@ -42,7 +42,7 @@ to `'/Your/project/diplomacy-research'`
 ```python3
 conda activate diplomacy
 cd diplomacy-research/diplomacy_research/diplomacy_sample
-```bash
+
 # The example uses AzureChatOpenAI
 export AZURE_DEPLOYMENT_NAME="gpt-4.1-2025-04-14" 
 export AZURE_API_KEY=<Your AZURE_API_KEY>
